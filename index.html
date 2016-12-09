@@ -1,11 +1,736 @@
-<html>
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="not-ie" lang="en">
+<!--<![endif]-->
 <head>
-<title>phpcms</title>
-<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
-<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
-<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
-<meta http-equiv="refresh" content="0;URL=./install/install.php">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHPCMS演示站</title>
+    <meta name="keywords" content="PHPCMS演示站">
+    <meta name="description" content="PHPCMS演示站">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/statics/test/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/statics/test/css/bootstrap-theme.min.css">
+
+    <script src="/statics/test/js/jquery.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/statics/test/js/html5shiv.min.js"></script>
+    <script src="/statics/test/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+        *{margin:0;padding:0;list-style-type:none;}
+        body{ color:#666; font-family:'微软雅黑' Arial, Helvetica, sans-serif ; padding-top:45px;}
+        a,img{border:0;}
+        a{ color:#6D6D6D }
+        a:hover{ color:#039}
+        .nav-top{  padding:0.5em 0;}
+        .nav-top table tr td{ border-right: #1B6FA3 solid 1px;}
+        .nav-top table tr .boder{ border:none; padding:0 1em 0 1em;}
+        .nav-top table tr .boder a{ color:#FFF; font-weight:bold;}
+        .nav-top a:hover{ color:#FFF;}
+        .nav-top a{ color:#FFF; text-decoration:none; font-family:"微软雅黑";}
+        .nav-top ul{ line-height:1.5em; padding-top:10px;}
+
+
+
+    </style>
 </head>
 <body>
+<!--array(4) {
+  ["site_title"]=>
+  string(15) "PHPCMS演示站"
+  ["keyword"]=>
+  string(15) "PHPCMS演示站"
+  ["description"]=>
+  string(15) "PHPCMS演示站"
+  ["title"]=>
+  string(0) ""
+}
+-->
+<!-- 页面的头部， 固定的不动 -->
+<div class="container-fluid navbar-fixed-top hidden-xs" style=" border-bottom:#CCC solid 1px; background:#F7F7F7">
+    <div class="container">
+        <div class="pull-left h6">
+            <span style="color: rgb(102, 102, 102); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; background-color: rgb(247, 247, 247);">欢迎光临PHPCMS的网站，内测版本！</span>        </div>
+        <div class="pull-right h6">
+            <div style="margin-top:-5px;height:20px">
+                <a href="#" style="line-height:20px">登录</a>&nbsp;|&nbsp;
+                <a href="#">注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header部分 -->
+<div class="container">
+    <div class="row">
+        <!--  md-3 -->
+        <div class="col-md-3 text-center">
+            <a href="javascript:;">
+                <!--<img style="padding:1.0em 0;height: 75px;-->
+    <!--width:220px" src="/statics/test/images/logo.png" alt="欢迎光临PHPCMS的网站">-->
+                <img alt="欢迎光临PHPCMS的网站" src="http://phpcms.yao.com/uploadfile/2016/1209/20161209081506842.png" style="width: 220px; height: 75px;" />            </a>
+        </div>
+        <!--  md-5 -->
+        <div class="col-md-5" style="padding:1.5em 0 1.5em 0">
+            <form action="#" method="get" target="_blank" class="input-group" >
+                <input type="hidden" name="m" value="search"/>
+                <input type="hidden" name="c" value="index"/>
+                <input type="hidden" name="a" value="init"/>
+                <input type="hidden" name="typeid" value="" id="typeid"/>
+                <input type="hidden" name="siteid" value="1" id="siteid"/>
+                <input type="text" class="form-control" name="q" id="q" autofocus x-webkit-speech />
+                <span class="input-group-btn" >
+                            <input type="submit" value="搜 索" class="btn btn-warning" style="background:#055b95;border:1px solid #055b95"/>
+                        </span>
+
+
+            </form>
+        </div>
+        <!--  md-4 -->
+        <div class="col-md-4">
+            <img class="pull-right hidden-xs  hidden-sm"  width="205" height="60" src="/statics/test/images/PHP_dh.png">
+        </div>
+    </div>
+</div>
+
+
+<!--  页面导航 -->
+<div class="container-fluid hidden-xs" style="background: #055b95">
+    <div class="container nav-top">
+        <table width="100%" border="0">
+            <tr>
+                <td style="padding-right:1em;width:60px;"><a class="h4" href="">网站</br>首页</a></td>
+
+                                                            <td class="boder" style="30px;"><a class="h4" target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=9">新闻</a></td>
+                        <td>
+                                            <td class="boder" style="30px;"><a class="h4" target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=18">汽车</a></td>
+                        <td>
+                                            <td class="boder" style="30px;"><a class="h4" target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=19">娱乐</a></td>
+                        <td>
+                                            <td class="boder" style="30px;"><a class="h4" target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=20">财经</a></td>
+                        <td>
+                                            <td class="boder" style="30px;"><a class="h4" target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=21">教育</a></td>
+                        <td>
+                                        <ul class="list-unstyled list-inline">
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=44">课程</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=45">小学</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=46">中学</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=47">高考</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=48">考研</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=49">公考</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=50">留学</a></li>
+                        
+                            <li><a  target="_blank" href="http://phpcms.yao.com/index.php?m=content&c=index&a=lists&catid=51">学院</a></li>
+                                            </ul>
+                </td>
+                            </tr>
+        </table>
+    </div>
+</div>
+
+<!-----手机导航微信-------->
+<nav class="navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PHPCMS网站</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="">首页</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">新闻 <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a  target="_blank" href="#">国内</a></li>
+                        <li><a  target="_blank" href="#">国际</a></li>
+                        <li><a  target="_blank" href="#">军事</a></li>
+                        <li><a  target="_blank" href="#">社会</a></li>
+                        <li><a  target="_blank" href="#">热点</a></li>
+                        <li><a  target="_blank" href="#">聚焦</a></li>
+                        <li><a  target="_blank" href="#">内地</a></li>
+                        <li><a  target="_blank" href="#">港台</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=12" class="dropdown-toggle" data-toggle="dropdown">汽车 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a  target="_blank" href="#">新车</a></li>
+                        <li><a  target="_blank" href="#">导购</a></li>
+                        <li><a  target="_blank" href="#">车型</a></li>
+                        <li><a  target="_blank" href="#">报价</a></li>
+                        <li><a  target="_blank" href="#">图片</a></li>
+                        <li><a  target="_blank" href="#">视频</a></li>
+                        <li><a  target="_blank" href="#">用车</a></li>
+                        <li><a  target="_blank" href="#">自驾</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">娱乐 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a  target="_blank" href="">明星</a></li>
+                        <li><a  target="_blank" href="">综艺</a></li>
+                        <li><a  target="_blank" href="">音乐</a></li>
+                        <li><a  target="_blank" href="">红人</a></li>
+                        <li><a  target="_blank" href="">韩娱</a></li>
+                        <li><a  target="_blank" href="">专栏</a></li>
+                        <li><a  target="_blank" href="">图集</a></li>
+                        <li><a  target="_blank" href="">排行</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">财经 <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a  target="_blank" href="#">A 股</a></li>
+                        <li><a  target="_blank" href="#">美股</a></li>
+                        <li><a  target="_blank" href="#">亚太</a></li>
+                        <li><a  target="_blank" href="#">欧洲</a></li>
+                        <li><a  target="_blank" href="#">基金</a></li>
+                        <li><a  target="_blank" href="#">期货</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">教育 <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu" role="menu">
+
+                        <li><a  target="_blank" href="#">课程</a></li>
+                        <li><a  target="_blank" href="#">小学</a></li>
+                        <li><a  target="_blank" href="#">中学</a></li>
+                        <li><a  target="_blank" href="#">高考</a></li>
+                        <li><a  target="_blank" href="#">考研</a></li>
+                        <li><a  target="_blank" href="#">公考</a></li>
+                        <li><a  target="_blank" href="#">留学</a></li>
+                        <li><a  target="_blank" href="#">学院</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+    <!-- 图片轮播 -->
+    <script src="/statics/test/js/bootstrap-carousel.js"></script>
+    <div class="container" style="margin-top:1em">
+        <div class="row">
+            <div class="col-md-4 hidden-xs col-sm-6 well well-sm" style="background:#fff">
+                
+                        
+                <div id="myCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                                            
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                
+                        <li data-target="#myCarousel" data-slide-to="1" ></li>
+                                                
+                        <li data-target="#myCarousel" data-slide-to="2" ></li>
+                                                
+                        <li data-target="#myCarousel" data-slide-to="3" ></li>
+                                                
+                        <li data-target="#myCarousel" data-slide-to="4" ></li>
+                                                            </ol>
+    
+                <!-- Carousel items -->
+                <div class="carousel-inner" style="height:320px">
+                            <div class="item active">
+                                <a href="#" target="_blank">
+                                     <img src="/statics/test/images/123.jpg" alt="内容" width="373" height="320" />
+                                </a>
+                            </div>
+                          <div class="item ">
+                                <a href="#" target="_blank">
+                                     <img src="/statics/test/images/234.jpg" alt="内容" width="373" height="320" />
+                                </a>
+                            </div>
+                            <div class="item ">
+                                <a href="#" target="_blank">
+                                     <img src="/statics/test/images/123.jpg" alt="内容" width="373" height="320" />
+                                </a>
+                            </div>
+                            <div class="item ">
+                                <a href="#" target="_blank">
+                                     <img src="/statics/test/images/234.jpg" alt="内容" width="373" height="320" />
+                                </a>
+                            </div>
+                            <div class="item ">
+                                <a href="#" target="_blank">
+                                     <img src="/statics/test/images/123.jpg" alt="内容" width="373" height="320" />
+                                </a>
+                            </div>
+                                    </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel"  data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+                        <script>  $('.carousel').carousel({ interval: 2000 })  </script>
+            </div>
+            
+            
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-8 hidden-xs hidden-sm">
+                        <div class="well-sm" style="border:#CCC solid 1px; background: #FAFFF7;" >
+                        <ul class="list-unstyled list-inline" style="line-height:1.8em">
+                        </ul>
+                        <ul class="list-unstyled list-inline" style="line-height:1.8em">
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                      <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+                                       <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
+
+
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4  col-sm-5 col-sm-offset-1 col-md-offset-0" style="border:#CCC solid 1px;height:340px">
+                        <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em"><b>热点新闻</b></h2>
+
+                         <ul class="list-unstyled" style="line-height:1.8em">
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <!-- 第二行 -->
+        <div class="row" style="border:#CCC solid 1px;">
+
+        </div>
+        <!-- 第三行 -->
+        <div class="row" style="border:#CCC solid 1px; margin-top:1em">
+                        <div class="col-md-12">
+                <h2 class="h4" style="border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
+                    <b class="pull-left">我爱看图</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
+                    <div class="clearfix"></div>
+                </h2>
+                        <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
+                                <img src="/statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
+                            <p><a href="">怀化市质监局精准...</a></p>
+                        </div>
+                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
+                                <img src="/statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
+                            <p><a href="">怀化市质监局精准...</a></p>
+                        </div>
+                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
+                                <img src="/statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
+                            <p><a href="">怀化市质监局精准...</a></p>
+                        </div>
+                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
+                                <img src="/statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
+                            <p><a href="">怀化市质监局精准...</a></p>
+                        </div>
+                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
+                                <img src="/statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
+                            <p><a href="">怀化市质监局精准...</a></p>
+                        </div>
+                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
+                                <img src="/statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
+                            <p><a href="">怀化市质监局精准...</a></p>
+                        </div>
+
+                 </div>
+                    </div>
+
+        <!-------列表内容区-------->
+        <div class="row " style="margin-top:1em; background: #eee">
+            <div class="col-md-8 well-sm"  >
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                                                <div class="well-sm" style=" margin-bottom:1em; background:#FFF">
+                            <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
+                                <b class="pull-left">聚焦事件</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
+                                <div class="clearfix"></div>
+                            </h2>
+
+                            <ul class="list-unstyled" style="line-height:1.8em">
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+
+                        <div class="well-sm" style="background:#FFF; margin-bottom:1em">
+                            <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
+                                <b class="pull-left">汽车推荐</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
+                                <div class="clearfix"></div>
+                            </h2>
+
+                            <ul class="list-unstyled" style="line-height:1.8em">
+                                                          <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+
+                             </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+
+                        <div class="well-sm" style="background:#FFF;">
+                            <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
+                                <b class="pull-left">娱乐资讯</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
+                                <div class="clearfix"></div>
+                            </h2>
+
+                            <ul class="list-unstyled" style="line-height:1.8em">
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                        <div class="well-sm" style="background:#FFF">
+                            <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
+                                <b class="pull-left">财经报道</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
+                                <div class="clearfix"></div>
+                            </h2>
+                            <ul class="list-unstyled" style="line-height:1.8em">
+                                     <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4  well-sm">
+                 <div class="row">
+                    <div class="col-md-12 col-sm-6">
+                        <div class="well-sm" style="border:#CCC solid 1px; background:#F9F9F9; margin-bottom:1em">
+                            <h2 class="h4" style=" border-bottom: #F60 solid 3px;padding-left:0.5em; padding-bottom:0.3em ">
+                                <b class="pull-left">热点</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="">>>更多</a>
+                                <div class="clearfix"></div>
+                            </h2>
+
+                            <ul class="list-unstyled" style="line-height:1.8em">
+
+                                 <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                             </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-6">
+                        <div class="well-sm" style="border:#CCC solid 1px; background:#F9F9F9">
+                            <h2 class="h4" style=" border-bottom: #F60 solid 3px;padding-left:0.5em; padding-bottom:0.3em">
+                                <b class="pull-left">热门评论</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
+                                <div class="clearfix"></div>
+                            </h2>
+
+                            <ul class="list-unstyled" style="line-height:1.8em">
+                                 <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                                <li>
+                                    <a class="h6" href="#" title="标题内容">怀化将组建打击治理电信网络新型违法犯罪分中...</a>
+                                </li>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container well-sm" style="margin-top:1em; border:solid #CCC 1px;">
+        <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
+            <b class="pull-left">友情链接</b>
+            <!-- <a style=" font-size:12px; margin-top:5px" class="pull-right" href="http://localhost/phpcms/index.php?m=link&siteid=1" hidefocus="true">>>更多</a> -->
+            <div  class="clearfix"></div>
+        </h2>
+
+        <ul class="list-unstyled list-inline">
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/1.gif" width="88" height="31" />
+                    </a>
+                </li>
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/2.png" width="88" height="31" />
+                    </a>
+                </li>
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/3.jpg" width="88" height="31" />
+                    </a>
+                </li>
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/4.png" width="88" height="31" />
+                    </a>
+                </li>
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/5.png" width="88" height="31" />
+                    </a>
+                </li>
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/6.png" width="88" height="31" />
+                    </a>
+                </li>
+                 <li>
+                    <a href="#" title="友情链接" target="_blank">
+                        <img src="/statics/test/images/7.png" width="88" height="31" />
+                    </a>
+                </li>
+        </ul>
+                <div class="well-sm" style="padding-bottom:1em">
+                    </div>
+            </div>
+
+<!---------------底部开始---------------->
+<div class="container-fluid" style="background: #FDFDFD; margin-top:1em; border-top:#CCC solid 1px; ">
+    <div class="container text-center" style="line-height:2em; padding-top:1em">
+        Copyright <span style="font-family:黑体;font-size:20px">&copy;</span> 2016 PHPCMS测试 All Rights Reserved.备案信息
+    </div>
+</div>
+<script src="/statics/test/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+

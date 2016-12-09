@@ -98,70 +98,19 @@
         <table width="100%" border="0">
             <tr>
                 <td style="padding-right:1em;width:60px;"><a class="h4" href="<?php echo $url;?>">网站</br>首页</a></td>
-                <td class="boder" style="30px;"><a class="h4" target="_blank" href="#">新闻</a></td>
-                <td>
-                    <ul class="list-unstyled list-inline">
-                        <li><a  target="_blank" href="#">国内</a></li>
-                        <li><a  target="_blank" href="#">国际</a></li>
-                        <li><a  target="_blank" href="#">军事</a></li>
-                        <li><a  target="_blank" href="#">社会</a></li>
-                        <li><a  target="_blank" href="#">热点</a></li>
-                        <li><a  target="_blank" href="#">聚焦</a></li>
-                        <li><a  target="_blank" href="#">内地</a></li>
-                        <li><a  target="_blank" href="#">港台</a></li>
-                    </ul>
-                </td>
-                <td class="boder" style="30px;"><a class="h4" target="_blank" href="#">汽车</a></td>
-                <td>
-                    <ul class="list-unstyled list-inline">
-                        <li><a  target="_blank" href="#">新车</a></li>
-                        <li><a  target="_blank" href="#">导购</a></li>
-                        <li><a  target="_blank" href="#">车型</a></li>
-                        <li><a  target="_blank" href="#">报价</a></li>
-                        <li><a  target="_blank" href="#">图片</a></li>
-                        <li><a  target="_blank" href="#">视频</a></li>
-                        <li><a  target="_blank" href="#">用车</a></li>
-                        <li><a  target="_blank" href="#">自驾</a></li>
-                    </ul>
-                </td>
-                <td class="boder" style="30px;"><a class="h4" target="_blank" href="#">娱乐</a></td>
-                <td>
-                    <ul class="list-unstyled list-inline">
-                        <li><a  target="_blank" href="">明星</a></li>
-                        <li><a  target="_blank" href="">综艺</a></li>
-                        <li><a  target="_blank" href="">音乐</a></li>
-                        <li><a  target="_blank" href="">红人</a></li>
-                        <li><a  target="_blank" href="">韩娱</a></li>
-                        <li><a  target="_blank" href="">专栏</a></li>
-                        <li><a  target="_blank" href="">图集</a></li>
-                        <li><a  target="_blank" href="">排行</a></li>
 
-                    </ul>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=14d2e7dfb3e6565eb692e7f13dd78788&action=category&catid=0&order=catid+ASC&siteid=%24siteid\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','order'=>'catid ASC','siteid'=>$siteid,'limit'=>'20',));}?>
+                    <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
+                        <td class="boder" style="30px;"><a class="h4" target="_blank" href="<?php echo $v['url'];?>"><?php echo $v['catname'];?></a></td>
+                        <td>
+                        <ul class="list-unstyled list-inline">
+                            <?php $n=1;if(is_array(subcat($v['catid']))) foreach(subcat($v['catid']) AS $z) { ?>
+                                <li><a  target="_blank" href="<?php echo $z['url'];?>"><?php echo $z['catname'];?></a></li>
+                            <?php $n++;}unset($n); ?>
+                        </ul>
                 </td>
-                <td class="boder" style="30px;"><a class="h4" target="_blank" href="#">财经</a></td>
-                <td>
-                    <ul class="list-unstyled list-inline">
-                        <li><a  target="_blank" href="#">A 股</a></li>
-                        <li><a  target="_blank" href="#">美股</a></li>
-                        <li><a  target="_blank" href="#">亚太</a></li>
-                        <li><a  target="_blank" href="#">欧洲</a></li>
-                        <li><a  target="_blank" href="#">基金</a></li>
-                        <li><a  target="_blank" href="#">期货</a></li>
-                    </ul>
-                </td>
-                <td class="boder" style="30px;"><a class="h4" target="_blank" href="#">教育</a></td>
-                <td>
-                    <ul class="list-unstyled list-inline">
-                        <li><a  target="_blank" href="#">课程</a></li>
-                        <li><a  target="_blank" href="#">小学</a></li>
-                        <li><a  target="_blank" href="#">中学</a></li>
-                        <li><a  target="_blank" href="#">高考</a></li>
-                        <li><a  target="_blank" href="#">考研</a></li>
-                        <li><a  target="_blank" href="#">公考</a></li>
-                        <li><a  target="_blank" href="#">留学</a></li>
-                        <li><a  target="_blank" href="#">学院</a></li>
-                    </ul>
-                </td>
+                     <?php $n++;}unset($n); ?>
+                <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
             </tr>
         </table>
     </div>
