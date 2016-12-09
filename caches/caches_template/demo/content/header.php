@@ -7,9 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Demo的网站</title>
-    <meta name="keywords" content="PHP Mysql">
-    <meta name="description" content="好网站！">
+    <title><?php echo $SEO['site_title'];?></title>
+    <meta name="keywords" content="<?php echo $SEO['keyword'];?>">
+    <meta name="description" content="<?php echo $SEO['description'];?>">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="<?php echo WEB_PATH;?>statics/test/css/bootstrap.min.css">
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
@@ -42,10 +42,13 @@
     </style>
 </head>
 <body>
+<!--<?php echo VAR_DUMP($SEO);?>-->
 <!-- 页面的头部， 固定的不动 -->
 <div class="container-fluid navbar-fixed-top hidden-xs" style=" border-bottom:#CCC solid 1px; background:#F7F7F7">
     <div class="container">
-        <div class="pull-left h6">欢迎光临PHPCMS的网站，内测版本！</div>
+        <div class="pull-left h6">
+            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"block\" data=\"op=block&tag_md5=651fc963ff0d3aaeacd1e657bae54776&pos=top_title\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">添加碎片</a>";}$block_tag = pc_base::load_app_class('block_tag', 'block');echo $block_tag->pc_tag(array('pos'=>'top_title',));?><?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+        </div>
         <div class="pull-right h6">
             <div style="margin-top:-5px;height:20px">
                 <a href="#" style="line-height:20px">登录</a>&nbsp;|&nbsp;
@@ -59,8 +62,11 @@
     <div class="row">
         <!--  md-3 -->
         <div class="col-md-3 text-center">
-            <a href="javascript:;"><img style="padding:1.0em 0;height: 75px;
-    width:220px" src="<?php echo WEB_PATH;?>statics/test/images/logo.png" alt="欢迎光临泰牛PHPCMS的网站"></a>
+            <a href="javascript:;">
+                <!--<img style="padding:1.0em 0;height: 75px;-->
+    <!--width:220px" src="<?php echo WEB_PATH;?>statics/test/images/logo.png" alt="欢迎光临PHPCMS的网站">-->
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"block\" data=\"op=block&tag_md5=98e911fb3ab44f68f53a6dd29c566b33&pos=logo\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">添加碎片</a>";}$block_tag = pc_base::load_app_class('block_tag', 'block');echo $block_tag->pc_tag(array('pos'=>'logo',));?><?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+            </a>
         </div>
         <!--  md-5 -->
         <div class="col-md-5" style="padding:1.5em 0 1.5em 0">
@@ -68,8 +74,8 @@
                 <input type="hidden" name="m" value="search"/>
                 <input type="hidden" name="c" value="index"/>
                 <input type="hidden" name="a" value="init"/>
-                <input type="hidden" name="typeid" value="" id="typeid"/>
-                <input type="hidden" name="siteid" value="1" id="siteid"/>
+                <input type="hidden" name="typeid" value="<?php echo $typeid;?>" id="typeid"/>
+                <input type="hidden" name="siteid" value="<?php echo $siteid;?>" id="siteid"/>
                 <input type="text" class="form-control" name="q" id="q" autofocus x-webkit-speech />
                 <span class="input-group-btn" >
                             <input type="submit" value="搜 索" class="btn btn-warning" style="background:#055b95;border:1px solid #055b95"/>
@@ -91,7 +97,7 @@
     <div class="container nav-top">
         <table width="100%" border="0">
             <tr>
-                <td style="padding-right:1em;width:60px;"><a class="h4" href="#">网站</br>首页</a></td>
+                <td style="padding-right:1em;width:60px;"><a class="h4" href="<?php echo $url;?>">网站</br>首页</a></td>
                 <td class="boder" style="30px;"><a class="h4" target="_blank" href="#">新闻</a></td>
                 <td>
                     <ul class="list-unstyled list-inline">
