@@ -127,84 +127,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">PHPCMS网站</a>
+            <a class="navbar-brand" href="#">{$SEO[site_title]}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">首页</a></li>
-
+                <li class="active"><a href="{$url}">首页</a></li>
+                {pc:content action="category" catid="0" order="catid ASC" siteid="$siteid"}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">新闻 <span class="caret"></span></a>
+                 {loop $data $v}
+                    <a href="{$v['url']}" class="dropdown-toggle" data-toggle="dropdown">{$v['catname']} <span class="caret"></span></a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="#">国内</a></li>
-                        <li><a  target="_blank" href="#">国际</a></li>
-                        <li><a  target="_blank" href="#">军事</a></li>
-                        <li><a  target="_blank" href="#">社会</a></li>
-                        <li><a  target="_blank" href="#">热点</a></li>
-                        <li><a  target="_blank" href="#">聚焦</a></li>
-                        <li><a  target="_blank" href="#">内地</a></li>
-                        <li><a  target="_blank" href="#">港台</a></li>
+                        {loop subcat($v['catid']) $z}
+                        <li><a  target="_blank" href="{$z['url']}">{$z['catname']}</a></li>
+                        {/loop}
                     </ul>
+                 {/loop}
                 </li>
-
-                <li class="dropdown">
-                    <a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=12" class="dropdown-toggle" data-toggle="dropdown">汽车 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="#">新车</a></li>
-                        <li><a  target="_blank" href="#">导购</a></li>
-                        <li><a  target="_blank" href="#">车型</a></li>
-                        <li><a  target="_blank" href="#">报价</a></li>
-                        <li><a  target="_blank" href="#">图片</a></li>
-                        <li><a  target="_blank" href="#">视频</a></li>
-                        <li><a  target="_blank" href="#">用车</a></li>
-                        <li><a  target="_blank" href="#">自驾</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">娱乐 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="">明星</a></li>
-                        <li><a  target="_blank" href="">综艺</a></li>
-                        <li><a  target="_blank" href="">音乐</a></li>
-                        <li><a  target="_blank" href="">红人</a></li>
-                        <li><a  target="_blank" href="">韩娱</a></li>
-                        <li><a  target="_blank" href="">专栏</a></li>
-                        <li><a  target="_blank" href="">图集</a></li>
-                        <li><a  target="_blank" href="">排行</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">财经 <span class="caret"></span></a>
-
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="#">A 股</a></li>
-                        <li><a  target="_blank" href="#">美股</a></li>
-                        <li><a  target="_blank" href="#">亚太</a></li>
-                        <li><a  target="_blank" href="#">欧洲</a></li>
-                        <li><a  target="_blank" href="#">基金</a></li>
-                        <li><a  target="_blank" href="#">期货</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">教育 <span class="caret"></span></a>
-
-                    <ul class="dropdown-menu" role="menu">
-
-                        <li><a  target="_blank" href="#">课程</a></li>
-                        <li><a  target="_blank" href="#">小学</a></li>
-                        <li><a  target="_blank" href="#">中学</a></li>
-                        <li><a  target="_blank" href="#">高考</a></li>
-                        <li><a  target="_blank" href="#">考研</a></li>
-                        <li><a  target="_blank" href="#">公考</a></li>
-                        <li><a  target="_blank" href="#">留学</a></li>
-                        <li><a  target="_blank" href="#">学院</a></li>
-                    </ul>
-                </li>
+                {/pc}
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

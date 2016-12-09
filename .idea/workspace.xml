@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="560e8dd5-44d3-436d-b04d-6b1513b1e968" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/caches/caches_template/default/content/message.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caches/caches_template/demo/content/header.php" afterPath="$PROJECT_DIR$/caches/caches_template/demo/content/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpcms/templates/demo/content/header.html" afterPath="$PROJECT_DIR$/phpcms/templates/demo/content/header.html" />
     </list>
     <ignored path="PHPCMS.iws" />
@@ -97,8 +94,8 @@
       <file leaf-file-name="header.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/phpcms/templates/demo/content/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+            <state relative-caret-position="258">
+              <caret line="143" column="62" selection-start-line="143" selection-start-column="62" selection-end-line="143" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -167,8 +164,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="443" />
-    <option name="y" value="80" />
+    <option name="x" value="162" />
+    <option name="y" value="117" />
     <option name="width" value="1370" />
     <option name="height" value="744" />
   </component>
@@ -283,15 +280,15 @@
       <workItem from="1481193976984" duration="6605000" />
       <workItem from="1481208141862" duration="36000" />
       <workItem from="1481210018803" duration="190000" />
-      <workItem from="1481281737926" duration="4730000" />
+      <workItem from="1481281737926" duration="5709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13698000" />
+    <option name="totallyTimeSpent" value="14677000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="443" y="80" width="1370" height="744" extended-state="0" />
+    <frame x="162" y="117" width="1370" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14580153" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -752,8 +749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phpcms/templates/demo/content/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+        <state relative-caret-position="258">
+          <caret line="143" column="62" selection-start-line="143" selection-start-column="62" selection-end-line="143" selection-end-column="62" />
           <folding />
         </state>
       </provider>

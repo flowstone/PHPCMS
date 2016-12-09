@@ -127,84 +127,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">PHPCMS网站</a>
+            <a class="navbar-brand" href="#"><?php echo $SEO['site_title'];?></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">首页</a></li>
-
+                <li class="active"><a href="<?php echo $url;?>">首页</a></li>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=14d2e7dfb3e6565eb692e7f13dd78788&action=category&catid=0&order=catid+ASC&siteid=%24siteid\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','order'=>'catid ASC','siteid'=>$siteid,'limit'=>'20',));}?>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">新闻 <span class="caret"></span></a>
+                 <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
+                    <a href="<?php echo $v['url'];?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $v['catname'];?> <span class="caret"></span></a>
 
                     <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="#">国内</a></li>
-                        <li><a  target="_blank" href="#">国际</a></li>
-                        <li><a  target="_blank" href="#">军事</a></li>
-                        <li><a  target="_blank" href="#">社会</a></li>
-                        <li><a  target="_blank" href="#">热点</a></li>
-                        <li><a  target="_blank" href="#">聚焦</a></li>
-                        <li><a  target="_blank" href="#">内地</a></li>
-                        <li><a  target="_blank" href="#">港台</a></li>
+                        <?php $n=1;if(is_array(subcat($v['catid']))) foreach(subcat($v['catid']) AS $z) { ?>
+                        <li><a  target="_blank" href="<?php echo $z['url'];?>"><?php echo $z['catname'];?></a></li>
+                        <?php $n++;}unset($n); ?>
                     </ul>
+                 <?php $n++;}unset($n); ?>
                 </li>
-
-                <li class="dropdown">
-                    <a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=12" class="dropdown-toggle" data-toggle="dropdown">汽车 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="#">新车</a></li>
-                        <li><a  target="_blank" href="#">导购</a></li>
-                        <li><a  target="_blank" href="#">车型</a></li>
-                        <li><a  target="_blank" href="#">报价</a></li>
-                        <li><a  target="_blank" href="#">图片</a></li>
-                        <li><a  target="_blank" href="#">视频</a></li>
-                        <li><a  target="_blank" href="#">用车</a></li>
-                        <li><a  target="_blank" href="#">自驾</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">娱乐 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="">明星</a></li>
-                        <li><a  target="_blank" href="">综艺</a></li>
-                        <li><a  target="_blank" href="">音乐</a></li>
-                        <li><a  target="_blank" href="">红人</a></li>
-                        <li><a  target="_blank" href="">韩娱</a></li>
-                        <li><a  target="_blank" href="">专栏</a></li>
-                        <li><a  target="_blank" href="">图集</a></li>
-                        <li><a  target="_blank" href="">排行</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">财经 <span class="caret"></span></a>
-
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a  target="_blank" href="#">A 股</a></li>
-                        <li><a  target="_blank" href="#">美股</a></li>
-                        <li><a  target="_blank" href="#">亚太</a></li>
-                        <li><a  target="_blank" href="#">欧洲</a></li>
-                        <li><a  target="_blank" href="#">基金</a></li>
-                        <li><a  target="_blank" href="#">期货</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">教育 <span class="caret"></span></a>
-
-                    <ul class="dropdown-menu" role="menu">
-
-                        <li><a  target="_blank" href="#">课程</a></li>
-                        <li><a  target="_blank" href="#">小学</a></li>
-                        <li><a  target="_blank" href="#">中学</a></li>
-                        <li><a  target="_blank" href="#">高考</a></li>
-                        <li><a  target="_blank" href="#">考研</a></li>
-                        <li><a  target="_blank" href="#">公考</a></li>
-                        <li><a  target="_blank" href="#">留学</a></li>
-                        <li><a  target="_blank" href="#">学院</a></li>
-                    </ul>
-                </li>
+                <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
