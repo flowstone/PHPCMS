@@ -5,53 +5,31 @@
         <div class="row">
             <div class="col-md-4 hidden-xs col-sm-6 well well-sm" style="background:#fff">
                 
-                        
+                {pc:content action="position" posid="1" num="8" order="listorder DESC"}
                 <div id="myCarousel" class="carousel slide">
                 <ol class="carousel-indicators">
-                                            
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="1" ></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="2" ></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="3" ></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="4" ></li>
-                                                            </ol>
+                    {php $nn=0}
+                   {loop $data $v}
+                        <li data-target="#myCarousel" data-slide-to="{$nn}" {if $nn==0}class="active">{/if}</li>
+                        {php $nn++}
+                    {/loop}
+                </ol>
     
                 <!-- Carousel items -->
                 <div class="carousel-inner" style="height:320px">
-                            <div class="item active">
-                                <a href="#" target="_blank">
-                                     <img src="{WEB_PATH}statics/test/images/123.jpg" alt="内容" width="373" height="320" />
+                    {loop $data $z}
+                            <div class="item {if $n==1}active{/if}">
+                                <a href="{$z['url']}" target="_blank">
+                                     <img src="{thumb($z['thumb'],373,320)}" alt="{$z['title']}" width="373" height="320" />
                                 </a>
                             </div>
-                          <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="{WEB_PATH}statics/test/images/234.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="{WEB_PATH}statics/test/images/123.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="{WEB_PATH}statics/test/images/234.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="{WEB_PATH}statics/test/images/123.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                                    </div>
+                    {/loop}
+                </div>
                 <!-- Carousel nav -->
                 <a class="carousel-control left" href="#myCarousel"  data-slide="prev">&lsaquo;</a>
                 <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
+                {/pc}
                         <script>  $('.carousel').carousel({ interval: 2000 })  </script>
             </div>
             
@@ -62,41 +40,25 @@
                         <div class="well-sm" style="border:#CCC solid 1px; background: #FAFFF7;" >
                         <ul class="list-unstyled list-inline" style="line-height:1.8em">
                         </ul>
+                        {pc:content action="positoin" posid="2" num="12"}
                         <ul class="list-unstyled list-inline" style="line-height:1.8em">
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                      <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                       <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-
-
+                            {loop $data $v}
+                            <li><a class="h6" title="{$v['title']}" href="{$v['url']}">{str_cut($v['title'],80)}</a></li>
+                            {/loop}
                         </ul>
+                        {/pc}
                         </div>
                     </div>
 
                     <div class="col-md-4  col-sm-5 col-sm-offset-1 col-md-offset-0" style="border:#CCC solid 1px;height:340px">
                         <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em"><b>热点新闻</b></h2>
-
-                         <ul class="list-unstyled" style="line-height:1.8em">
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                        {pc:content action="postition" posid="10" num="12" order="listorder DESC" catid="15"}
+                        <ul class="list-unstyled" style="line-height:1.8em">
+                            {loop $data $v}
+                            <li><a class="h6" title="{$v['title']}" href="{$v['url']}">{str_cut($v['title'],60)}</a></li>
+                            {/loop}
                         </ul>
+                        {/pc}
                     </div>
                 </div>
             </div>

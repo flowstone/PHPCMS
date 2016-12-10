@@ -5,53 +5,31 @@
         <div class="row">
             <div class="col-md-4 hidden-xs col-sm-6 well well-sm" style="background:#fff">
                 
-                        
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=4e9b7153b29f6ab19fdb0990ece16218&action=position&posid=1&num=8&order=listorder+DESC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'position')) {$data = $content_tag->position(array('posid'=>'1','order'=>'listorder DESC','limit'=>'8',));}?>
                 <div id="myCarousel" class="carousel slide">
                 <ol class="carousel-indicators">
-                                            
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="1" ></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="2" ></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="3" ></li>
-                                                
-                        <li data-target="#myCarousel" data-slide-to="4" ></li>
-                                                            </ol>
+                    <?php $nn=0?>
+                   <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
+                        <li data-target="#myCarousel" data-slide-to="<?php echo $nn;?>" <?php if($nn==0) { ?>class="active"><?php } ?></li>
+                        <?php $nn++?>
+                    <?php $n++;}unset($n); ?>
+                </ol>
     
                 <!-- Carousel items -->
                 <div class="carousel-inner" style="height:320px">
-                            <div class="item active">
-                                <a href="#" target="_blank">
-                                     <img src="<?php echo WEB_PATH;?>statics/test/images/123.jpg" alt="内容" width="373" height="320" />
+                    <?php $n=1;if(is_array($data)) foreach($data AS $z) { ?>
+                            <div class="item <?php if($n==1) { ?>active<?php } ?>">
+                                <a href="<?php echo $z['url'];?>" target="_blank">
+                                     <img src="<?php echo thumb($z['thumb'],373,320);?>" alt="<?php echo $z['title'];?>" width="373" height="320" />
                                 </a>
                             </div>
-                          <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="<?php echo WEB_PATH;?>statics/test/images/234.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="<?php echo WEB_PATH;?>statics/test/images/123.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="<?php echo WEB_PATH;?>statics/test/images/234.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="#" target="_blank">
-                                     <img src="<?php echo WEB_PATH;?>statics/test/images/123.jpg" alt="内容" width="373" height="320" />
-                                </a>
-                            </div>
-                                    </div>
+                    <?php $n++;}unset($n); ?>
+                </div>
                 <!-- Carousel nav -->
                 <a class="carousel-control left" href="#myCarousel"  data-slide="prev">&lsaquo;</a>
                 <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
+                <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                         <script>  $('.carousel').carousel({ interval: 2000 })  </script>
             </div>
             
@@ -62,41 +40,25 @@
                         <div class="well-sm" style="border:#CCC solid 1px; background: #FAFFF7;" >
                         <ul class="list-unstyled list-inline" style="line-height:1.8em">
                         </ul>
+                        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=c73eda679806b3aebf67fa29eb2a7811&action=positoin&posid=2&num=12\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'positoin')) {$data = $content_tag->positoin(array('posid'=>'2','limit'=>'12',));}?>
                         <ul class="list-unstyled list-inline" style="line-height:1.8em">
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                     <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                      <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-                                       <li><a class="h6" title="" href="#">怀化将组建打击治理电信网击治理电信网击治理电信网击治理电信网络新型...</a></li>
-
-
+                            <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
+                            <li><a class="h6" title="<?php echo $v['title'];?>" href="<?php echo $v['url'];?>"><?php echo str_cut($v['title'],80);?></a></li>
+                            <?php $n++;}unset($n); ?>
                         </ul>
+                        <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                         </div>
                     </div>
 
                     <div class="col-md-4  col-sm-5 col-sm-offset-1 col-md-offset-0" style="border:#CCC solid 1px;height:340px">
                         <h2 class="h4" style=" border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em"><b>热点新闻</b></h2>
-
-                         <ul class="list-unstyled" style="line-height:1.8em">
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
-                            <li><a class="h6" title="#" href="#">怀化将组建打击治理电信网络新型...</a></li>
+                        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=5f8adb485c7caa98f4dd0ad4c78be749&action=postition&posid=10&num=12&order=listorder+DESC&catid=15\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'postition')) {$data = $content_tag->postition(array('posid'=>'10','order'=>'listorder DESC','catid'=>'15','limit'=>'12',));}?>
+                        <ul class="list-unstyled" style="line-height:1.8em">
+                            <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
+                            <li><a class="h6" title="<?php echo $v['title'];?>" href="<?php echo $v['url'];?>"><?php echo str_cut($v['title'],60);?></a></li>
+                            <?php $n++;}unset($n); ?>
                         </ul>
+                        <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                     </div>
                 </div>
             </div>
