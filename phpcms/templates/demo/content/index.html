@@ -55,7 +55,7 @@
                         {pc:content action="postition" posid="10" num="12" order="listorder DESC" catid="15"}
                         <ul class="list-unstyled" style="line-height:1.8em">
                             {loop $data $v}
-                            <li><a class="h6" title="{$v['title']}" href="{$v['url']}">{str_cut($v['title'],60)}</a></li>
+                            <li><a class="h6" title="{$v['title']}" href="{$v['url']}">{str_cut($v['title'],58,null)}</a></li>
                             {/loop}
                         </ul>
                         {/pc}
@@ -72,46 +72,24 @@
 
         </div>
         <!-- 第三行 -->
+        {pc:cotent action="position" posid="12" num="6"}
         <div class="row" style="border:#CCC solid 1px; margin-top:1em">
-                        <div class="col-md-12">
+                <div class="col-md-12">
                 <h2 class="h4" style="border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
                     <b class="pull-left">我爱看图</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
                     <div class="clearfix"></div>
                 </h2>
+                {loop $data $v}
                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="{WEB_PATH}statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="{$v['url']}" title="{$v['title']}">
+                                <img src="{$v['thumb']}"  title="{$v['title']}" width="100%" height="130"/></a>
+                            <p><a href="">{str_cut($v['title'],20)}</a></p>
                         </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="{WEB_PATH}statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="{WEB_PATH}statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="{WEB_PATH}statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="{WEB_PATH}statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="{WEB_PATH}statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
+                {/loop}
 
                  </div>
-                    </div>
-
+        </div>
+        {/pc}
         <!-------列表内容区-------->
         <div class="row " style="margin-top:1em; background: #eee">
             <div class="col-md-8 well-sm"  >

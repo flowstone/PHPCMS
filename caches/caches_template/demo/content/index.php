@@ -55,7 +55,7 @@
                         <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=5f8adb485c7caa98f4dd0ad4c78be749&action=postition&posid=10&num=12&order=listorder+DESC&catid=15\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'postition')) {$data = $content_tag->postition(array('posid'=>'10','order'=>'listorder DESC','catid'=>'15','limit'=>'12',));}?>
                         <ul class="list-unstyled" style="line-height:1.8em">
                             <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
-                            <li><a class="h6" title="<?php echo $v['title'];?>" href="<?php echo $v['url'];?>"><?php echo str_cut($v['title'],60);?></a></li>
+                            <li><a class="h6" title="<?php echo $v['title'];?>" href="<?php echo $v['url'];?>"><?php echo str_cut($v['title'],58,null);?></a></li>
                             <?php $n++;}unset($n); ?>
                         </ul>
                         <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
@@ -72,46 +72,24 @@
 
         </div>
         <!-- 第三行 -->
+        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"cotent\" data=\"op=cotent&tag_md5=69f4642513f4801cc971b60d44512d6c&action=position&posid=12&num=6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}?>
         <div class="row" style="border:#CCC solid 1px; margin-top:1em">
-                        <div class="col-md-12">
+                <div class="col-md-12">
                 <h2 class="h4" style="border-bottom:#055b95 solid 3px; padding-left:0.5em; padding-bottom:0.3em">
                     <b class="pull-left">我爱看图</b><a style=" font-size:12px; margin-top:5px" class="pull-right" href="#">>>更多</a>
                     <div class="clearfix"></div>
                 </h2>
+                <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="<?php echo WEB_PATH;?>statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
+                            <a class="img-thumbnail" style="width:140px; height:140px;" href="<?php echo $v['url'];?>" title="<?php echo $v['title'];?>">
+                                <img src="<?php echo $v['thumb'];?>"  title="<?php echo $v['title'];?>" width="100%" height="130"/></a>
+                            <p><a href=""><?php echo str_cut($v['title'],20);?></a></p>
                         </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="<?php echo WEB_PATH;?>statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="<?php echo WEB_PATH;?>statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="<?php echo WEB_PATH;?>statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="<?php echo WEB_PATH;?>statics/test/images/234.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
-                         <div class="col-md-2 col-sm-3 col-xs-6 text-center" style="margin-bottom:5px">
-                            <a class="img-thumbnail" style="width:140px; height:140px;" href="#" title="标题内容">
-                                <img src="<?php echo WEB_PATH;?>statics/test/images/123.jpg"  title="标题内容" width="100%" height="130"/></a>
-                            <p><a href="">怀化市质监局精准...</a></p>
-                        </div>
+                <?php $n++;}unset($n); ?>
 
                  </div>
-                    </div>
-
+        </div>
+        <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
         <!-------列表内容区-------->
         <div class="row " style="margin-top:1em; background: #eee">
             <div class="col-md-8 well-sm"  >
